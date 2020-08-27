@@ -4,12 +4,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@ConfigurationProperties(prefix ="info")
+@ConfigurationProperties(prefix = "info")
 @RestController
 public class Contr {
 
     private String instanceId;
     private String applicationName;
+    private String valuesFromConfig;
 
     public String getInstanceId() {
         return instanceId;
@@ -27,8 +28,20 @@ public class Contr {
         this.applicationName = applicationName;
     }
 
+    public String getValuesFromConfig() {
+        return valuesFromConfig;
+    }
+
+    public void setValuesFromConfig(String valuesFromConfig) {
+        this.valuesFromConfig = valuesFromConfig;
+    }
+
     @GetMapping("/info")
     public String getInfo() {
-        return "App name: "+applicationName+" , instance ID: "+instanceId;
+
+        return "App name: " + applicationName + " , instance ID: " + instanceId + System.lineSeparator() +
+                "Test values: " + valuesFromConfig + System.lineSeparator();
     }
+
+
 }

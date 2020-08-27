@@ -1,3 +1,6 @@
 /.idea/
 /eureka/mvnw.cmd
 /eureka/mvnw
+/configuration-service/mvnw.cmd
+/configuration-service/mvnw
+/configuration-service/.mvn/
